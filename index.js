@@ -18,24 +18,27 @@ class MyTable{
      *
      * @param elType => type of elments for list
      * @param data => one of dataSource obj
-     * @param keys => array of keys or string key to create a table
+     * @param keys => array of keys to create a table or null
      * @returns {[]}
      */
     createTableRowsList(elType,data,keys) {
         let list = [];
-        if(typeof(keys) != "object"){
-
-            return data.map(x => x.keys)
-        }
+        try{
         for(let key of keys) {
             list.push(document.createElement(elType));
             list[list.length - 1] = data[key];
+            }
+        }
+        catch(err){
+            console.dir(err);
+            console.log(err);
+            return list
         }
         return list
     };
     createHeader() {
         let elType = "th";
-        let keys = "header";
+        let keys = columns.map(obj => obj.header);
         let tHead = document.createElement("tHead");
 
     }
