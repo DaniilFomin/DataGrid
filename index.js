@@ -21,7 +21,7 @@ class MyTable{
      * @param keys => array of keys to create a table or null
      * @returns {[]}
      */
-    createTableRowsList(elType,data,keys) {
+    /*createTableRowsList(elType,data,keys) {
         let list = [];
         try{
         for(let key of keys) {
@@ -35,18 +35,23 @@ class MyTable{
             return list
         }
         return list
-    };
+    };*/
     createHeader() {
-        let elType = "th";
-        let keys = columns.map(obj => obj.header);
         let tHead = document.createElement("tHead");
 
     }
     createBody() {
-        let elType = "td";
-        let keys = columns.map(obj => obj.key);
         let tBody = document.createElement("tBody");
-
+        let dataRowsList = dataSource.map(obj =>{
+                const parentElement = document.createElement("tr")
+                for (let columnElement of columns){
+                    let childElement = document.createElement("td")
+                    childElement.innerHTML = obj[columnElement.key]
+                    parentElement.append(childElement)
+                }
+                return parentElement
+            }
+        )
     }
     render() {
 
