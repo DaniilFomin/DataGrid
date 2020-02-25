@@ -8,54 +8,46 @@ class MyTable{
     constructor(el,columns,dataSource) {
         this.parentElement = el;
         this.columns = columns;
-        dataSource().then(
-            response => {this.dataSource = response},
-            err => throw(err)
-        );
+        this.dataSource = this.getDataSource()
     };
-
-    /**
-     *
-     * @param elType => type of elments for list
-     * @param data => one of dataSource obj
-     * @param keys => array of keys to create a table or null
-     * @returns {[]}
-     */
-    /*createTableRowsList(elType,data,keys) {
-        let list = [];
-        try{
-        for(let key of keys) {
-            list.push(document.createElement(elType));
-            list[list.length - 1] = data[key];
-            }
-        }
-        catch(err){
-            console.dir(err);
-            console.log(err);
-            return list
-        }
-        return list
-    };*/
+    getDataSource(){
+        dataSource().then(
+            response => {return response},
+            err => throw(err)
+        )
+    }
     createHeader() {
         let tHead = document.createElement("tHead");
-
+        let headerRowsList = () => {
+            const parentElement = document.createElement("tr");
+            let headers = this.columns.map(obj =>{
+                let element = document.createElement("th");
+                element.innerHTML = obj.header;
+                return element
+            });
+            for (let header of headers){
+                parentElement.append(header)
+            }
+            return parentElement}
+            return tHead.append(headerRowsList())
     }
     createBody() {
         let tBody = document.createElement("tBody");
-        let dataRowsList = dataSource.map(obj =>{
-                const parentElement = document.createElement("tr")
-                for (let columnElement of columns){
-                    let childElement = document.createElement("td")
-                    childElement.innerHTML = obj[columnElement.key]
-                    parentElement.append(childElement)
+        let bodyRowsList = this.dataSource.map(obj =>{
+                const parentElement = document.createElement("tr");
+                for (let columnElement of this.columns){
+                    let childElement = document.createElement("td");
+                    childElement.innerHTML = obj[columnElement.key];
+                    parentElement.append(childElement);
                 }
                 return parentElement
             }
         )
+        return tBody.append(bodyRowsList)
     }
     render() {
-
-
+        this.parentElement.append(this.createHeader());
+        this.parentElement.append(this.createBody())
     }
 }
 let el = document.querySelector('.table')
@@ -96,14 +88,7 @@ let dataSource = async function(){
     });
 
 return await promise
-    /*let filler = await setTimeout(() => {[
-        {number:"1",
-         name:"John",
-         surname:"Doe",
-         year:"1970",
-         gender:"male"}
-    ]},2000)
-*/
+
 };
 let table = new MyTable(el,columns,dataSource);
-table.render()
+table.render();
