@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df437e8b-0312-4bee-8b92-9875aba1a1be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +53,11 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ice-t\WebstormProjects\DataGrid\" />
+      <recent name="C:\Users\ice-t\WebstormProjects\DataGrid\scripts" />
+      <recent name="C:\Users\ice-t\WebstormProjects\DataGrid\scrpts" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -79,7 +82,7 @@
       <workItem from="1581188941915" duration="5159000" />
       <workItem from="1582455851397" duration="4644000" />
       <workItem from="1582628900447" duration="2756000" />
-      <workItem from="1582638054258" duration="845000" />
+      <workItem from="1582638054258" duration="4409000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1581195054548</created>
@@ -88,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581195054549</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update 2">
+      <created>1582638937577</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582638937577</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,17 +119,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
-    <option name="LAST_COMMIT_MESSAGE" value="new" />
+    <MESSAGE value="update 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Libraries" timestamp="1582456958298">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Libraries/0.0.1366.728@0.0.1366.728" timestamp="1582456958298" />
-    <state x="416" y="0" key="CommitChangelistDialog2" timestamp="1582638926381">
+    <state x="416" y="0" key="CommitChangelistDialog2" timestamp="1582638936362">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="416" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1582638926381" />
+    <state x="416" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1582638936362" />
     <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1581195053961" />
     <state x="405" y="81" width="447" height="520" key="FileChooserDialogImpl" timestamp="1582638659743">
       <screen x="0" y="0" width="1366" height="728" />
