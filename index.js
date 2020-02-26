@@ -8,10 +8,10 @@ class MyTable{
     constructor(el,columns,dataSource) {
         this.parentElement = el;
         this.columns = columns;
-        this.dataSource = dataSource;
+        this.response = dataSource;
         };
-    getDataSource(dataSource){
-        dataSource().then(
+    getDataSource(response){
+        response().then(
             response => {return response},
             err => console.log(err)
         )
@@ -28,7 +28,8 @@ class MyTable{
             for (let header of headers){
                 parentElement.append(header)
             }
-            return parentElement}
+            return parentElement
+        };
             tHead.append(headerRowsList());
             return tHead
     }
@@ -49,8 +50,9 @@ class MyTable{
     }
     async render() {
         this.parentElement.append(this.createHeader(this.columns));
-        let dataSource = await this.getDataSource(this.dataSource);
-        this.parentElement.append(this.createBody(dataSource));
+        let dataSource = await this.getDataSource(this.response);
+        let tBody = await this.createBody(dataSource);
+        this.parentElement.append(tBody);
     }
 }
 
