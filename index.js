@@ -8,19 +8,19 @@ class MyTable{
     constructor(el,columns,dataSource) {
         this.parentElement = el;
         this.columns = columns;
-        this.dataSource = this.getDataSource()
-    };
-    getDataSource(){
+        this.dataSource = dataSource;
+        };
+    getDataSource(dataSource){
         dataSource().then(
             response => {return response},
-            err => throw(err)
+            err => console.log(err)
         )
     }
-    createHeader() {
-        let tHead = document.createElement("tHead");
+    createHeader(columns) {
+        const tHead = document.createElement("tHead");
         let headerRowsList = () => {
             const parentElement = document.createElement("tr");
-            let headers = this.columns.map(obj =>{
+            let headers = columns.map(obj =>{
                 let element = document.createElement("th");
                 element.innerHTML = obj.header;
                 return element
@@ -29,11 +29,12 @@ class MyTable{
                 parentElement.append(header)
             }
             return parentElement}
-            return tHead.append(headerRowsList())
+            tHead.append(headerRowsList());
+            return tHead
     }
-    createBody() {
-        let tBody = document.createElement("tBody");
-        let bodyRowsList = this.dataSource.map(obj =>{
+    createBody(dataSource) {
+        const tBody = document.createElement("tBody");
+        let bodyRowsList = dataSource.map(obj =>{
                 const parentElement = document.createElement("tr");
                 for (let columnElement of this.columns){
                     let childElement = document.createElement("td");
@@ -42,15 +43,20 @@ class MyTable{
                 }
                 return parentElement
             }
-        )
-        return tBody.append(bodyRowsList)
+        );
+        tBody.append(bodyRowsList);
+        return tBody
     }
-    render() {
-        this.parentElement.append(this.createHeader());
-        this.parentElement.append(this.createBody())
+    async render() {
+        this.parentElement.append(this.createHeader(this.columns));
+        let dataSource = await this.getDataSource(this.dataSource);
+        this.parentElement.append(this.createBody(dataSource));
     }
 }
+
+
 let el = document.querySelector('.table')
+
 let columns = [{header: "№",
                 key: "number"   },
                {header: "Name"   ,
@@ -60,9 +66,10 @@ let columns = [{header: "№",
                {header: "Year"   ,
                 key: "year"     },
                {header: "Gender" ,
-                key: "gender"    },]
-let dataSource = async function(){
-    let promise = new Promise((resolve, reject) => {
+                key: "gender"    },
+              ];
+
+let dataSource = new Promise((resolve, reject) => {
         let data = [{
             number:"1",
             name:"John",
@@ -87,8 +94,6 @@ let dataSource = async function(){
         (data) ? setTimeout(() => resolve(data),2000): reject("No data")
     });
 
-return await promise
 
-};
 let table = new MyTable(el,columns,dataSource);
 table.render();

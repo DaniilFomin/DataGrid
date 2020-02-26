@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df437e8b-0312-4bee-8b92-9875aba1a1be" name="Default Changelist" comment="">
+    <list default="true" id="df437e8b-0312-4bee-8b92-9875aba1a1be" name="Default Changelist" comment="update 3&#10;dataSource rewrite&#10;render rewrite">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +83,7 @@
       <workItem from="1582455851397" duration="4644000" />
       <workItem from="1582628900447" duration="2756000" />
       <workItem from="1582638054258" duration="4409000" />
+      <workItem from="1582727075483" duration="4664000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1581195054548</created>
@@ -120,16 +121,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
     <MESSAGE value="update 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 2" />
+    <MESSAGE value="update 3&#10;dataSource rewrite&#10;render rewrite" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 3&#10;dataSource rewrite&#10;render rewrite" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Libraries" timestamp="1582456958298">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Libraries/0.0.1366.728@0.0.1366.728" timestamp="1582456958298" />
-    <state x="416" y="0" key="CommitChangelistDialog2" timestamp="1582638936362">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="585" y="0" key="CommitChangelistDialog2" timestamp="1582731844211">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="585" y="0" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582731844211" />
     <state x="416" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1582638936362" />
     <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1581195053961" />
     <state x="405" y="81" width="447" height="520" key="FileChooserDialogImpl" timestamp="1582638659743">
@@ -137,6 +140,10 @@
     </state>
     <state x="405" y="81" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1582638659743" />
     <state x="454" y="109" width="447" height="520" key="FileChooserDialogImpl/70.27.1296.741@70.27.1296.741" timestamp="1580832556820" />
+    <state x="841" y="414" width="260" height="211" key="Github.ShareDialog" timestamp="1582731719111">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="841" y="414" width="260" height="211" key="Github.ShareDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582731719111" />
     <state x="266" y="102" width="824" height="533" key="IDE.errors.dialog" timestamp="1580841566165">
       <screen x="70" y="27" width="1296" height="741" />
     </state>
