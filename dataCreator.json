@@ -1,0 +1,23 @@
+[{"number":"1",
+    "name":"John",
+    "surname":"Lennon",
+    "year":"1940",
+    "gender":"male" },
+    {
+    "number":"2",
+    "name":"Paul",
+    "surname":"McCartney",
+    "year":"1942",
+    "gender":"male" },
+    {
+    "number":"3",
+    "name":"George",
+    "surname":"Harrison",
+    "year":"1943",
+    "gender":"male" },
+    {
+    "number":"4",
+    "name":"Richard",
+    "surname":"Starkey",
+    "year":"1940",
+    "gender":"male" }]

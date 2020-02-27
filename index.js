@@ -8,14 +8,14 @@ class MyTable{
     constructor(el,columns,dataSource) {
         this.parentElement = el;
         this.columns = columns;
-        this.response = dataSource;
+        this.request = dataSource;
         };
-    getDataSource(response){
-        response().then(
+    /*getDataSource(request){
+        request().then(
             response => {return response},
             err => console.log(err)
         )
-    }
+    }*/
     createHeader(columns) {
         const tHead = document.createElement("tHead");
         let headerRowsList = () => {
@@ -45,14 +45,17 @@ class MyTable{
                 return parentElement
             }
         );
-        tBody.append(bodyRowsList);
+
+        bodyRowsList.forEach(row => (tBody.append(row)));
+        console.log(tBody)
         return tBody
     }
     async render() {
+        let dataSource;
         this.parentElement.append(this.createHeader(this.columns));
-        let dataSource = await this.getDataSource(this.response);
+        await this.request().then(res => (dataSource = res));
         let tBody = await this.createBody(dataSource);
-        this.parentElement.append(tBody);
+        await this.parentElement.append(tBody);
     }
 }
 
@@ -71,30 +74,13 @@ let columns = [{header: "№",
                 key: "gender"    },
               ];
 
-let dataSource = new Promise((resolve, reject) => {
-        let data = [{
-            number:"1",
-            name:"John",
-            surname:"Lennon",
-            year:"1940",
-            gender:"male"}, {
-            number:"2",
-            name:"Paul",
-            surname:"McCartney",
-            year:"1942",
-            gender:"male"}, {
-            number:"3",
-            name:"George",
-            surname:"Harrison",
-            year:"1943",
-            gender:"male"}, {
-            number:"4",
-            name:"Richard",
-            surname:"Starkey",
-            year:"1940",
-            gender:"male"},];
-        (data) ? setTimeout(() => resolve(data),2000): reject("No data")
-    });
+let dataSource = async function(){
+    await new Promise(resolve => setTimeout(()=>{resolve()},1000));
+    let data = await fetch("./dataCreator.json").then(response => response.json());
+    return await data
+};
+
+
 
 
 let table = new MyTable(el,columns,dataSource);
