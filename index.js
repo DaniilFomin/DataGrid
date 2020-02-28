@@ -1,9 +1,9 @@
 class MyTable {
     /**
      *
-     * @param el
-     * @param columns
-     * @param dataSource
+     * @param el HtmlElement
+     * @param columns  Array<Any>
+     * @param dataSource  Function
      */
     constructor(el, columns, dataSource) {
         this.parentElement = el;
@@ -11,25 +11,19 @@ class MyTable {
         this.request = dataSource;
     };
 
-    /*getDataSource(request){
-        request().then(
-            response => {return response},
-            err => console.log(err)
-        )
-    }*/
     createHeader(columns) {
         const tHead = document.createElement("tHead");
         const headerRowsList = () => {
-            const parentElement = document.createElement("tr");
-            let headers = columns.map(obj => {
-                let element = document.createElement("th");
-                element.innerHTML = obj.header;
-                return element
+            const row = document.createElement("tr");
+            let headers = columns.map(column => {
+                let cell = document.createElement("th");
+                cell.innerHTML = column.header;
+                return cell
             });
             for (let header of headers) {
-                parentElement.append(header)
+                row.append(header)
             }
-            return parentElement
+            return row
         };
         tHead.append(headerRowsList());
         return tHead
@@ -42,31 +36,30 @@ class MyTable {
          * @type {Array<HTMLTableRowElement>}
          */
         const bodyRowsList = dataSource.map(obj => {
-                const parentElement = document.createElement("tr");
-                for (let columnElement of this.columns) {
-                    const childElement = document.createElement("td");
-                    childElement.innerHTML = obj[columnElement.key];
-                    parentElement.append(childElement);
+                const row = document.createElement("tr");
+                for (let column of this.columns) {
+                    const cell = document.createElement("td");
+                    cell.innerHTML = obj[column.key];
+                    row.append(cell);
                 }
-                return parentElement
+                return row
             }
         );
 
         bodyRowsList.forEach(row => (tBody.append(row)));
-        console.log(tBody)
         return tBody
     }
 
     async render() {
-        let dataSource = await this.request();
         this.parentElement.append(this.createHeader(this.columns));
+        let dataSource = await this.request();
         let tBody = await this.createBody(dataSource);
         await this.parentElement.append(tBody);
     }
 }
 
 
-let el = document.querySelector('.table')
+let el = document.querySelector('.table');
 
 let columns = [{
     header: "№",
