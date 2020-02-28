@@ -1,6 +1,37 @@
+:root {
+    --width : 20%;
+}
+body{
+    background:#eff3f6;
+    box-sizing: border-box;
+}
 .table {
-    display: flex;
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
     inline-size: 800px;
     block-size: min-content;
-    margin: auto;
+    text-align: center;
+    background: #b1cce7;
+    border-spacing: 0;
+}
+th, td{
+    padding: 10px 20px;
+    inline-size: var(--width);
+    block-size: min-content;
+    border: white 1px solid;
+}
+
+th {
+    color: white;
+    background: #b1cce7;
+}
+
+td {
+    color: black;
+    background: #d8e5f5;
+}
+td:first-child {
+    color: white;
+    background: #b1cce7;
 }
