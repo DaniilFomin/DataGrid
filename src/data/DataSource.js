@@ -1,13 +1,17 @@
 export class DataSource extends EventTarget{
-    constructor(data) {
+    constructor(value) {
         super();
-        this.data = data
-    }
-    data(data){
-        if(data == null ){
-            return this
+        this.value = value
+    };
+    data(value) {
+        if(value == null ){
+            return this.value
         }
-        this.data = data;
-        dispatchEvent(new Event("DataChange"))
+        this.value = value;
+        console.log(2);
+        this.dispatchEvent(new Event("change"))
+    }
+    velow(){
+        alert("ous")
     }
 }

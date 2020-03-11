@@ -56,24 +56,29 @@ export class MyTable {
         return tBody;
     }
     tableRender(){
+        console.log("q");
        let dataSource = this.dataSource.data();
        for(let el of this.parentNode.children){
-           if (el === "tBody"){
-               this.parentNode.replaceChild(el,this.createBody(dataSource.data()));
-                return true;
+           if (el.tagName === "TBODY"){
+               this.parentNode.removeChild(el);
            }
        }
-        this.parentNode.append(this.createBody(dataSource.data()));
-        return false;
+        this.parentNode.append(this.createBody(dataSource));
     }
 
     render() {
         this.parentNode.append(this.createHeader(this.columns));
         this.tableRender();
-        this.dataSource.addEventListener("DataChange",this.tableRender())
+        console.log(3);
+        this.dataSource.addEventListener("change", ()=>{this.tableRender()});
+        console.log(5);
+        //this.dataSource.dispatchEvent(new Event("change"));
+        console.log(this.dataSource)
+
     }
+
     remove(){
-        this.dataSource.removeEventListener("DataChange",this.tableRender());
+        this.dataSource.removeEventListener("Change", this.tableRender);
         for (let tableElement of this.parentNode.children){
             this.parentNode.removeChild(tableElement)
         }

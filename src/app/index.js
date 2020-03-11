@@ -37,6 +37,15 @@ import {MyTable} from "../components/MyTable.js";
     let dataSource = new DataSource( await getData());
 
     let table = new MyTable(columns,await dataSource);
+
+
     table.setParentNode(el);
     table.render();
-}
+    new Promise(resolve => setTimeout(()=>{dataSource.data([{"number":"6",
+        "name":"Johrtyn",
+        "surname":"Lennon",
+        "year":"1940",
+        "gender":"male" }])},4000))
+    ;
+    }
+setTable();
