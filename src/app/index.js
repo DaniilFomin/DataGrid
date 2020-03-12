@@ -1,7 +1,8 @@
 import {DataSource} from "../data/DataSource.js";
 import {MyTable} from "../components/MyTable.js";
+import {Tests} from "../tests/Test.js";
 
-    let el = document.querySelector('.table');
+let el = document.querySelector('.table');
 
     let columns = [{
         header: "№",
@@ -32,7 +33,6 @@ import {MyTable} from "../components/MyTable.js";
         return await fetch("../data/dataCreator.json").then(response => response.json());
 
     };
-
     async function setTable(){
     let dataSource = new DataSource( await getData());
 
@@ -40,12 +40,11 @@ import {MyTable} from "../components/MyTable.js";
 
 
     table.setParentNode(el);
-    table.render();
-    new Promise(resolve => setTimeout(()=>{dataSource.data([{"number":"6",
-        "name":"Johrtyn",
-        "surname":"Lennon",
-        "year":"1940",
-        "gender":"male" }])},4000))
-    ;
+    console.log(table);
+    let test = new Tests(await table,await dataSource);
+    console.log(test);
+    await test.runTest()
+
     }
+
 setTable();

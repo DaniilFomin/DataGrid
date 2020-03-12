@@ -55,8 +55,7 @@ export class MyTable {
         bodyRowsList.forEach(row => (tBody.append(row)));
         return tBody;
     }
-    tableRender(){
-        console.log("q");
+    tableRender = () => {
        let dataSource = this.dataSource.data();
        for(let el of this.parentNode.children){
            if (el.tagName === "TBODY"){
@@ -69,18 +68,15 @@ export class MyTable {
     render() {
         this.parentNode.append(this.createHeader(this.columns));
         this.tableRender();
-        console.log(3);
-        this.dataSource.addEventListener("change", ()=>{this.tableRender()});
-        console.log(5);
+        this.dataSource.addEventListener("change",this.tableRender);
         //this.dataSource.dispatchEvent(new Event("change"));
         console.log(this.dataSource)
 
     }
-
     remove(){
-        this.dataSource.removeEventListener("Change", this.tableRender);
-        for (let tableElement of this.parentNode.children){
-            this.parentNode.removeChild(tableElement)
+        while(this.parentNode.children.length != 0) {
+            this.parentNode.removeChild(this.parentNode.firstChild)
         }
+        this.dataSource.removeEventListener("change",this.tableRender)
     }
 }
