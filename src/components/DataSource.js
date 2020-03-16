@@ -8,7 +8,6 @@ export class DataSource extends EventTarget{
             return this.value
         }
         this.value = value;
-        console.log(2);
         this.dispatchEvent(new Event("change"))
     }
     add(value){
@@ -22,8 +21,8 @@ export class DataSource extends EventTarget{
 
         this.dispatchEvent(new Event("change"))
     }
-    delete(position){
-        this.value.splice(position,1);
+    delete(id){
+        this.value = this.value.filter(element => (element.id != id));
         this.dispatchEvent(new Event("change"))
     }
 }

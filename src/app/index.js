@@ -1,13 +1,13 @@
-import {DataSource} from "../data/DataSource.js";
-import {MyTable} from "../components/MyTable.js";
+import {DataSource} from "../components/DataSource.js";
+import {DataGrid} from "../components/DataGrid.js";
 import {Tests} from "../tests/Test.js";
 
-let el = document.querySelector('.table');
-
+const el = document.createElement("div");
+document.body.appendChild(el);
     let columns = [{
         header: "№",
-        key: "number"
-    },
+        key: "id"
+        },
         {
             header: "Name",
             key: "name"
@@ -26,25 +26,20 @@ let el = document.querySelector('.table');
         },
     ];
 
-    let getData = async function () {
+    let getData = async function (source) {
         await new Promise(resolve => setTimeout(() => {
             resolve()
-        }, 1000));
-        return await fetch("../data/dataCreator.json").then(response => response.json());
-
+        }, 2000));
+        return await fetch(source).then(response => response.json());
     };
     async function setTable(){
-    let dataSource = new DataSource( await getData());
+    let dataSource = new DataSource( await getData("../data/dataCreator.json"));
 
-    let table = new MyTable(columns,await dataSource);
+    let table = new DataGrid(el,columns,dataSource);
 
-
-    table.setParentNode(el);
-    console.log(table);
-    let test = new Tests(await table,await dataSource);
-    console.log(test);
+    let newParent = document.createElement("div");
+    let test = new Tests(await table,dataSource,newParent);
     await test.runTest()
-
     }
 
 setTable();
