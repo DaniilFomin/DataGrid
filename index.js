@@ -64,7 +64,7 @@ class MyTable {
 }
 
 
-let el = document.querySelector('.table');
+let el = document.querySelector('.container');
 
 let columns = [{
     header: "№",
